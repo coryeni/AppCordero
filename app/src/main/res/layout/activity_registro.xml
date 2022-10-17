@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Registro"
+    android:background="@drawable/fondonextech"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/logoRegistroMedical"
+        android:layout_width="137dp"
+        android:layout_height="142dp"
+        android:layout_gravity="left"
+        android:src="@drawable/sin"
+        android:transitionName="logoImageTrans"
+        app:layout_constraintBottom_toTopOf="@+id/bienvenidolabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/bienvenidolabel"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="1dp"
+        android:fontFamily="@font/abel"
+        android:text="Bienvenido,"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        android:transitionName="textTrans"
+        app:layout_constraintBottom_toTopOf="@+id/continuarlabel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoRegistroMedical" />
+
+    <TextView
+        android:id="@+id/continuarlabel"
+        android:layout_width="319dp"
+        android:layout_height="54dp"
+        android:layout_marginBottom="3dp"
+        android:fontFamily="@font/abel"
+        android:text="Registrate para empezar a usar Medical Project"
+        android:textSize="24sp"
+        android:transitionName="iniciaSesionTextTrans"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/bienvenidolabel" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="335dp"
+        android:layout_marginBottom="69dp"
+        app:layout_constraintBottom_toTopOf="@+id/nuevoUsuario"
+        app:layout_constraintTop_toBottomOf="@+id/continuarlabel"
+        tools:layout_editor_absoluteX="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/nombreTextField"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:hint="Nombre Completo"
+                android:transitionName="nombreinputTexttrans"
+                app:layout_constraintTop_toBottomOf="@+id/continuarlabel"
+                tools:layout_editor_absoluteX="-81dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/nombreEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/abel" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/usuarioTextField"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:hint="Usuario"
+                android:transitionName="usuarioinputTexttrans"
+                app:layout_constraintTop_toBottomOf="@+id/continuarlabel"
+                tools:layout_editor_absoluteX="-77dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/usuarioEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/abel" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/contrasenaTextField"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:hint="Contraseña"
+                android:transitionName="contrasenatransition"
+                app:layout_constraintTop_toBottomOf="@+id/usuarioTextField"
+                app:passwordToggleEnabled="true"
+                tools:layout_editor_absoluteX="15dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/contraEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/abel"
+                    android:inputType="textPassword" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/correoTextField"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:hint="Correo Electrónico"
+                android:transitionName="contrasenatransition"
+                app:layout_constraintTop_toBottomOf="@+id/usuarioTextField"
+                tools:layout_editor_absoluteX="-79dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/emailEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/abel"
+                    android:inputType="textEmailAddress" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fechaTextField"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:hint="Fecha"
+                android:transitionName="fechatransition"
+                app:layout_constraintTop_toBottomOf="@+id/usuarioTextField"
+                tools:layout_editor_absoluteX="-133dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fechaEditText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/abel"
+                    android:inputType="datetime" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Séxo"
+                android:textStyle="bold" />
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                >
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/Masculino"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Masculino"
+                    android:textColor="@color/white"/>
+
+                <com.google.android.material.radiobutton.MaterialRadioButton
+                    android:id="@+id/Femenino"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Femenino"
+                    android:textColor="@color/white"/>
+            </RadioGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/Registrarte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="70dp"
+                android:backgroundTint="@color/botonpa"
+                android:text="Registrar Cuenta"
+                android:textColor="@color/white"
+                android:transitionName="buttonSignInTrans" />
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/nuevoUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="62dp"
+        android:layout_marginEnd="62dp"
+        android:layout_marginBottom="30dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/abel"
+        android:text="Ya tienes una cuenta? Inicia Sesión"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:transitionName="newUserTrans"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

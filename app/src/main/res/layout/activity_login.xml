@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fondonextech"
+    android:orientation="vertical"
+    android:padding="25dp"
+    tools:context=".Login">
+
+    <ImageView
+        android:id="@+id/loginImageMedical"
+        android:layout_width="198dp"
+        android:layout_height="164dp"
+        android:layout_gravity="center"
+        android:src="@drawable/sin"
+        android:transitionName="logoImageTrans" />
+
+    <TextView
+        android:id="@+id/bienvenidolabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="28dp"
+        android:fontFamily="@font/abel"
+        android:text="Bienvenido a Medical Project"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:transitionName="textTrans" />
+
+    <TextView
+        android:id="@+id/continuarlabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/abel"
+        android:text="Inicia Sesión para Continuar"
+        android:textSize="28sp"
+        android:transitionName="iniciarSesionTextTrans"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/usuarioTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:transitionName="usuarioinputTexttrans"
+        android:hint="Usuario">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/usuarioulti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/abel" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/contrasenaTextField"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:transitionName="contrasenatransition"
+        android:hint="Contraseña"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/contraulti"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/abel"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/olvidasteContra"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/abel"
+        android:text="¿Olvidaste tu Contraseña?"
+        android:textAlignment="textEnd"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="20dp" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/InicioSesion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="70dp"
+        android:text="Iniciar Sesión"
+        android:backgroundTint="@color/botonpa"
+        android:textColor="@color/white"
+        android:transitionName="buttonSignInTrans"/>
+
+    <TextView
+        android:id="@+id/nuevoUsuario"
+        android:layout_width="250dp"
+        android:layout_height="25dp"
+        android:layout_gravity="center"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/abel"
+        android:text="¿Eres nuevo? Registrate"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:transitionName="newUserTrans"/>
+
+</LinearLayout>
