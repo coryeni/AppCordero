@@ -6,6 +6,7 @@ import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Pair;
 import android.view.View;
 import android.view.animation.Animation;
@@ -19,20 +20,29 @@ import android.widget.Toast;
 import com.example.cordero.archivosguason.Digest;
 import com.example.cordero.archivosguason.MyInfo;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Login extends AppCompatActivity {
 
     public List <MyInfo> list = null;
+    String json = null;
+    public static String TAG = "mensaje";
     TextView bienvenidoLabel, continuarLabel, olvidastecontra, nuevoUsuario;
     EditText contrasenaTextField;
     ImageView loginImageMedical;
     Button InicioSesion;
 
-    MyInfo myInfo;
+
 
     public static final String archivo = "registro.json";
 
@@ -54,6 +64,9 @@ public class Login extends AppCompatActivity {
         continuarLabel = findViewById(R.id.continuarlabel);
         olvidastecontra = findViewById(R.id.olvidasteContra);
         nuevoUsuario = findViewById(R.id.nuevoUsuario);
+
+        Read();
+        json2List(json);
 
         nuevoUsuario.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,12 +102,15 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                String usr = String.valueOf(usuario.getText());
+                String psw = String.valueOf(contra.getText());
+
                 Digest sha1 = new Digest();
 
                 int i = 0;
                 for (MyInfo myInfo : list) {
-                    if (myInfo.getNombre().equals(usuario) && myInfo.getContra().equals(contra)) {
-                        Intent intent = new Intent(Login.this, Principal.class);
+                    if (myInfo.getUsuario().equals(usr) && myInfo.getContra().equals(psw)) {
+                        Intent intent = new Intent(Login.this, Jungle.class);
                         startActivity(intent);
                         i = 1;
 
@@ -127,5 +143,39 @@ public class Login extends AppCompatActivity {
 
     private File getFile() {
         return new File( getDataDir() , archivo );
+    }
+
+    public void json2List(String json){
+        Gson gson = null;
+        String mensaje = null;
+        if(json == null || json.length() == 0){
+        }
+        gson = new Gson();
+        Type listType = new TypeToken<ArrayList<MyInfo>>(){}.getType();
+        list = gson.fromJson(json, listType);
+        if(list == null || list.size() == 0){
+        }
+    }
+    public boolean Read(){
+        if(!isFileExits()){
+            return false;
+        }
+        File file = getFile();
+        FileInputStream fileInputStream = null;
+        byte[] bytes = null;
+        bytes = new byte[(int)file.length()];
+        try{
+            fileInputStream = new FileInputStream(file);
+            fileInputStream.read(bytes);
+            json = new String(bytes);
+            Log.d(TAG, json);
+        }
+        catch (FileNotFoundException e){
+            e.printStackTrace();
+        }
+        catch (IOException e){
+            e.printStackTrace();
+        }
+        return false;
     }
 }

@@ -103,6 +103,17 @@ public class Registro extends AppCompatActivity {
                     return;
                 }
 
+                MyInfo info = new MyInfo();
+
+                info.setNombre(nombreedit.getText().toString());
+                info.setUsuario(usuarioedit.getText().toString());
+                info.setContra(contrasenaedit.getText().toString());
+                info.setCorreo(correoedit.getText().toString());
+                info.setFecha(fechaedit.getText().toString());
+
+                List2Json(info, list);
+
+
                 String Nombre = nombreedit.getText().toString();
                 String Usuario = usuarioedit.getText().toString();
                 String Contra = contrasenaedit.getText().toString();
@@ -191,6 +202,21 @@ public class Registro extends AppCompatActivity {
         return json;
     }
 
+    public void List2Json(MyInfo info, List<MyInfo> list){
+        Gson gson = null;
+        String json = null;
+        gson = new Gson();
+        list.add(info);
+        json = gson.toJson(list, ArrayList.class);
+        if(json == null){
+            Log.d(TAG, "Error json");
+        }
+        else{
+            Log.d(TAG, json);
+            writeFile(json);
+        }
+        Toast.makeText(getApplicationContext(), "Registro completado", Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     public void onBackPressed(){
