@@ -27,6 +27,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.Serializable;
 import java.lang.reflect.Type;
 import java.security.Principal;
 import java.util.ArrayList;
@@ -111,6 +112,7 @@ public class Login extends AppCompatActivity {
                 for (MyInfo myInfo : list) {
                     if (myInfo.getUsuario().equals(usr) && myInfo.getContra().equals(psw)) {
                         Intent intent = new Intent(Login.this, Jungle.class);
+                        intent.putExtra("Objeto", myInfo);
                         startActivity(intent);
                         i = 1;
 

@@ -1,6 +1,8 @@
 package com.example.cordero.archivosguason;
 
-public class MyInfo {
+import java.io.Serializable;
+
+public class MyInfo implements Serializable {
     private String Nombre;
     private String Usuario;
     private String Contra;
