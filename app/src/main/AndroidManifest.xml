@@ -14,6 +14,9 @@
         android:theme="@style/Theme.Cordero"
         tools:targetApi="31">
         <activity
+            android:name=".Listas"
+            android:exported="false" />
+        <activity
             android:name=".Jungle"
             android:exported="false" />
         <activity
